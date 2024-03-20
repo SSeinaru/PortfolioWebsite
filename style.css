@@ -1,0 +1,62 @@
+@font-face {
+    font-family: 'vcr_osd_monoregular';
+    src: url('vcr_osd_mono_1.001-webfont.woff2') format('woff2'),
+         url('vcr_osd_mono_1.001-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+} 
+
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    background-color: #330917;
+}
+header{
+    width: 100%;
+    height: 150px;
+    background-color: #551C2F;  
+}   
+nav > ul{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 20px;
+}
+nav > ul > li{
+    border-radius: 20px;
+    width: 10%;
+    height: 10%;
+}
+nav > ul > li > a{
+    line-height: 100px;
+    color: white;
+    background-color: black;
+    border-radius: 10px;
+
+    height: 100%;
+    width: 100%;
+    display: block;
+    text-align: center;
+    line-height: 5px;
+    text-decoration: none;
+    color: whitesmoke;
+}
+nav > ul > li:hover{
+    cursor: pointer;   
+}
+
+canvas{
+    position:absolute;
+    z-index:-1;
+    top:0;    
+    left:0;
+}
+
+footer > h4{
+    border-bottom: 10px rebeccapurple;
+    font-size: 150%;
+    margin-bottom: 20px;
+}
