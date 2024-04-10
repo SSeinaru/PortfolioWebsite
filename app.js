@@ -1,7 +1,13 @@
-const canvas = document.getElementById("myCanvas");
+const canvas = document.createElement("canvas");
+document.body.insertBefore(canvas, document.body.firstChild); // Insert canvas as the first child of <body>
 const ctx = canvas.getContext("2d");
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
+canvas.style.position = "fixed"; // Position the canvas fixed so it remains in the background
+canvas.style.top = "0";
+canvas.style.left = "0";
+canvas.style.zIndex = "-1"; // Set a negative z-index to keep it behind other content
+
 let eyes = [];
 let theta;
 
@@ -10,11 +16,9 @@ const mouse = {
     y: undefined,
 };
 
-
-
 window.addEventListener("mousemove", function(e){
-    mouse.x = event.x; 
-    mouse.y = event.y;
+    mouse.x = e.clientX; // Use clientX and clientY for mouse coordinates
+    mouse.y = e.clientY;
 });
 
 class Eye {
@@ -24,57 +28,45 @@ class Eye {
         this.radius = radius; 
     }
     draw(){
-    
-    
-    // draw eye
-    ctx.beginPath();
-    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, true);
-    ctx.fillStyle = "950019";
+        // draw eye
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, true);
+        ctx.fillStyle = "#950019";
+        ctx.fill();
+        ctx.closePath();
 
-    ctx.closePath();
+        // draw iris
+        let iris_dx = mouse.x - this.x;
+        let iris_dy = mouse.y - this.y;
+        theta = Math.atan2(iris_dy, iris_dx);
+        let iris_x = this.x + Math.cos(theta) * this.radius/10;
+        let iris_y = this.y + Math.sin(theta) * this.radius/10;
+        let irisRadius = this.radius/1.2;
 
-    // draw iris
-    let iris_dx = mouse.x - this.x;
-    let iris_dy = mouse.y - this.y;
-    theta = Math.atan2(iris_dy, iris_dx);
-    let iris_x = this.x + Math.cos(theta) * this.radius/10;
-    let iris_y = this.y + Math.sin(theta) * this.radius/10;
-    let irisRadius = this.radius/1.2;
+        ctx.beginPath();
+        ctx.arc(iris_x, iris_y, irisRadius, 0, Math.PI * 2, true);
+        ctx.fillStyle = "white";
+        ctx.fill();
+        ctx.closePath();
 
-    ctx.beginPath();
-    ctx.arc(iris_x, iris_y, irisRadius, 0, Math.PI * 2, true);
-    ctx.fillStyle = "white";
-    ctx.fill();
-    ctx.closePath();
+        // pupil
+        let pupil_dx = mouse.x - this.x;
+        let pupil_dy = mouse.y - this.y;
+        theta = Math.atan2(pupil_dy, pupil_dx)
 
-    // pupil
-    let pupil_dx = mouse.x - this.x;
-    let pupil_dy = mouse.y - this.y;
-    theta = Math.atan2(pupil_dy, pupil_dx)
+        let pupilRadius = this.radius / 2.5;
+        let pupil_x = this.x + Math.cos(theta) * this.radius/1.9;
+        let pupil_y = this.y + Math.sin(theta) * this.radius/1.9;
 
-    let pupilRadius = this.radius / 2.5;
-    let pupil_x = this.x + Math.cos(theta) * this.radius/1.9;
-    let pupil_y = this.y + Math.sin(theta) * this.radius/1.9;
-
-    ctx.beginPath();
-    ctx.arc(pupil_x, pupil_y, pupilRadius, 0, Math.PI * 2, true)
-    ctx.fillStyle = "black";
-    ctx.fill();
-    ctx.closePath();
-
-    //draw mouse
-    ctx.beginPath();
-    ctx.arc(mouse.x, mouse.y, 1, 0, Math.PI * 2, true)
-    ctx.fillStyle = "gold";
-    ctx.fill();
-    ctx.closePath();
-
-    var img = document.getElementById("card");
-    ctx.drawImage(img, 525, 50);
+        ctx.beginPath();
+        ctx.arc(pupil_x, pupil_y, pupilRadius, 0, Math.PI * 2, true)
+        ctx.fillStyle = "black";
+        ctx.fill();
+        ctx.closePath();
     }
 }
+
 function init(){
-    
     eyes = [];
     let overlapping = false;
     let numberOfEyes = 100;
@@ -103,9 +95,7 @@ function init(){
             eyes.push(new Eye(eye.x, eye.y, eye.radius))
         }
     }
- 
 }
-
 
 function animate(){
     requestAnimationFrame(animate);
@@ -119,28 +109,8 @@ function animate(){
 init();
 animate();
 
-
 window.addEventListener("resize", function(){
-    canvas.width = this.innerWidth;
-    canvas.height = this.innerHeight;
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
     init();
-})
-
-$(function(){
-
-    var t;
-    $("body").mousemove(function(){
-
-        clearTimeout(t); //Clear restore volume function
-
-        //Mute
-        var audio = document.getElementById("audio");
-        audio.volume=0.0;
-
-        //Time restore volume
-        t = setTimeout(function(){
-            var audio = document.getElementById("audio");
-            audio.volume=1.0;
-        }, 200);
-    });
 });

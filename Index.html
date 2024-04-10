@@ -1,38 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="stylesheet" href="style.css">
-    <script src="app.js" defer></script>
-
-    <title>Sei's Portfolio</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <canvas id="myCanvas"></canvas>
-    <header>
+
+<header>
+
+    <div class="container">
+    <div class="logo">
+
+    <img src="logo.png" alt="Logo">
+    <span>Jasper's Portfolio</span>
+        </div>
         <nav>
             <ul>
-                <li><a href="Index.html">Home</a></li>
-                <li><a href="AboutMe.html">About Me!</a></li>
-                <li><a href="ContactInfo.html"><img class="Yea" >🛈 Contact Info</a></li>
+                <li><a href="Index.html">Projects</a></li>
+                <li><a href="AboutMe.html">About</a></li>
+                <li><a href="ContactInfo.html">Contact</a></li>
             </ul>
         </nav>
-    </header>
-    <section>
-       
-        <h4></h4>
-        <article class="intro">
-            <article class="intop">
-                <h4>De Portfolio van Jasper Hiemstra</h4>
-                </article>
-                
-            <p>
-                
-            </p>
-        </article>
+    </div>
+</header>
+
+<div class="intro">
+    <div class="container">
+        <h2>Welcome to My Portfolio</h2>
+        <p>Feel free to explore my projects below!</p>
+    </div>
+</div>
+
+<main>
+    <section id="projects">
+        <div class="container">
+            <h2>Projects</h2>
+            <div class="project-grid">
+                <div class="project">
+                    <img src="Images/img32.png" alt="Project 3">
+                    <h3>The RIFT Guardian</h3>
+                    <p>A VR standstill wave shooter in unreal engine</p>
+                </div>
+                <div class="project">
+                    <img src="project1.jpg" alt="Project 1">
+                    <h3>Project ULTRAKILL</h3>
+                    <p>A vertical slice of the First level in ULTRAKILL</p>
+                </div>
+                <div class="project">
+                    <img src="Images/Celestial_Terror_Poster.png" alt="Project 2">
+                    <h3>Celestial Terror</h3>
+                    <p>A point and click horror story</p>
+                </div>
+                <div class="project">
+                    <img src="project3.jpg" alt="Project 3">
+                    <h3>Stand The World</h3>
+                    <p>A effect i made in my free time</p>
+                </div>
+                <div class="project">
+                    <img src="project3.jpg" alt="Project 3">
+                    <h3>Project 3</h3>
+                    <p>Description of Project 3</p>
+                </div>
+                <div class="project">
+                    <img src="project3.jpg" alt="Project 3">
+                    <h3>Project 3</h3>
+                    <p>Description of Project 3</p>
+                </div>
+                <!-- Add more projects as needed -->
+            </div>
+        </div>
     </section>
+</main>
+
+
+<script src="app.js"></script>
 </body>
 </html>
