@@ -1,12 +1,26 @@
-/* Resetting some default styles */
+@font-face {
+    font-family: 'CustomFont';
+    src: url('font/VCR_OSD_MONO_1.001.woff2') format('woff2'), /* Modern Browsers */
+         url('font/VCR_OSD_MONO_1.001.woff') format('woff'); /* Older Browsers */
+    font-weight: normal;
+    font-style: normal;
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-}
+}df
 
-body {
-    font-family: Arial, sans-serif;
+title {
+    flex-basis: calc(100% - 20px);
+    color: #D5B1BD;
+    margin: 10px;
+    padding: 20px;
+    border: 1px solid #551C2F;
+    border-radius: 5px;
+    background-color: #AA7184;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .container {
@@ -16,7 +30,7 @@ body {
 }
 
 .intro {
-    background-color: #f0f0f0;
+    background-color: #551C2F;
     padding: 50px 0;
     text-align: center;
 }
@@ -43,9 +57,9 @@ body {
 }
 
 header {
-    background-color: #333;
-    color: #fff;
-    padding: 20px 0;
+    background-color: #330917;
+    color: #FFCBDC;
+    padding: 10px 10px;
 }
 
 .container {
@@ -61,13 +75,13 @@ header {
 }
 
 .logo img {
-    height: 40px;
+    height: 70px; /* Increase the height of the logo */
     width: auto;
     margin-right: 10px;
 }
 
 .logo span {
-    font-size: 20px;
+    font-size: 24px;
     font-weight: bold;
 }
 
@@ -86,7 +100,7 @@ nav ul li:first-child {
 }
 
 nav ul li a {
-    color: #fff;
+    color: #D5B1BD;
     text-decoration: none;
 }
 
@@ -105,9 +119,9 @@ main {
 }
 
 .project {
-    border: 1px solid #ddd;
+    border: 1px solid #551C2F;
     padding: 20px;
-    background-color: #fff; /* Set background color for projects */
+    background-color: #AA7184; /* Set background color for projects */
     display: flex;
     flex-direction: column;
     justify-content: space-between; /* Align content vertically */
@@ -116,6 +130,11 @@ main {
     position: relative; /* Ensure proper positioning of image container */
     overflow: hidden; /* Hide overflow to maintain square shape */
     margin-bottom: 20px; /* Add margin to create space between projects */
+    transition: transform 0.3s ease-in-out; /* Add smooth transition effect */
+}
+
+.project:hover {
+    transform: scale(1.1); /* Enlarge by 10% on hover */
 }
 
 .project img {
@@ -130,4 +149,117 @@ main {
     overflow: hidden; /* Hide overflow */
     text-overflow: ellipsis; /* Add ellipsis for text overflow */
     white-space: nowrap; /* Prevent text from wrapping */
+}
+
+.about-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+}
+
+.text-box {
+    flex-basis: calc(100% - 20px);
+    color: #D5B1BD;
+    margin: 10px;
+    padding: 20px;
+    border: 1px solid #551C2F;
+    border-radius: 5px;
+    background-color: #AA7184;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.profile-picture {
+    flex-basis: 30%;
+    margin: 10px;
+}
+
+.profile-picture img {
+    max-width: 100%;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+@media screen and (max-width: 768px) {
+    .about-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .profile-picture, .text-box {
+        flex-basis: 100%;
+    }
+}
+
+.container h2 {
+    margin-bottom: 20px;
+}
+
+.contact-info .text-box {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.contact-info p {
+    margin-bottom: 10px;
+}
+
+.project-details {
+    display: flex;
+}
+
+.project-box {
+    border: 1px solid #551C2F;
+    background-color: #330917;
+    color: #FFCBDC;
+    border-radius: 5px;
+    overflow: hidden;
+    width: 100%;
+}
+
+.project-content {
+    display: flex;
+}
+
+.project-image {
+    flex: 1;
+}
+
+.project-image img {
+    max-width: 100%;
+    height: auto;
+}
+
+.project-info {
+    flex: 1;
+    padding: 20px;
+}
+
+.project-info h2 {
+    margin-top: 0;
+}
+
+.project-info ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.project-info ul li {
+    margin-bottom: 10px;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #333;
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #555;
 }

@@ -1,25 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="stylesheet" href="style.css">
-    <script src="app.js" defer></script>
-    <title>Sei's Portfolio</title>
+    <title>About Me</title>
+    <link rel="stylesheet" href="style.css"> <!-- Link to your CSS file -->
 </head>
 <body>
-    <canvas id="myCanvas"></canvas>
-    <header>
+
+<header>
+    <div class="container">
+        <div class="logo">
+            <img src="images/Logo.png" alt="Logo">
+            <span>Jasper's Portfolio</span>
+        </div>
         <nav>
             <ul>
-                <li><a href="Index.html">Home</a></li>
-                <li><a href="AboutMe.html">About Me!</a></li>
-                <li><a href="ContactInfo.html"><img class="Yea" >🛈 Contact Info</a></li>
+                <li><a href="index.html">Projects</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="ContactInfo.html">Contact</a></li>
             </ul>
         </nav>
-    </header>
-    <img class="Selfie" src="Images/PictureOfMe.JPG">
+    </div>
+</header>
+
+<main>
+    <section id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <div class="profile-picture">
+                    <img src="images/PictureOfMe.JPG" alt="Profile Picture">
+                </div>
+                <div class="text-box">
+                    <h3>About Me</h3>
+                    <p>Sup, my name is Jasper Hiemstra, I'm a 18 year old who lives in the Netherlands
+                    and i am a second year game developer at Media College Amsterdam. 
+                    I generally don't really code in my free time while i want to but i lack concentration. 
+                    But in my free time i game with friends, alone, listen to music, Fuck around outside, 
+                    
+                        </p>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <p>&copy; 2024 Your Name</p>
+    </div>
+</footer>
+
+<script src="app.js"></script>
 </body>
 </html>

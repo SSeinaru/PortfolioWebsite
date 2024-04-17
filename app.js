@@ -22,45 +22,49 @@ window.addEventListener("mousemove", function(e){
 });
 
 class Eye {
-    constructor(x, y, radius){
+    constructor(x, y, width, height){
         this.x = x;
         this.y = y;
-        this.radius = radius; 
+        this.width = width;
+        this.height = height;
+        this.irisRadius = Math.min(width, height) / 3; // Set iris radius to 1/3 of eye size
+        this.irisWidth = this.width * 0.8; // Set iris width to be 80% of eye width
+        this.irisHeight = this.height * 0.8; // Set iris height to be 80% of eye height
     }
     draw(){
-        // draw eye
+        // draw eye (red part)
         ctx.beginPath();
-        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, true);
-        ctx.fillStyle = "#950019";
+        ctx.ellipse(this.x, this.y, this.width, this.height, 0, 0, Math.PI * 2, true);
+        ctx.fillStyle = "#950019"; // Red color for the eye
         ctx.fill();
         ctx.closePath();
 
-        // draw iris
-        let iris_dx = mouse.x - this.x;
-        let iris_dy = mouse.y - this.y;
-        theta = Math.atan2(iris_dy, iris_dx);
-        let iris_x = this.x + Math.cos(theta) * this.radius/10;
-        let iris_y = this.y + Math.sin(theta) * this.radius/10;
-        let irisRadius = this.radius/1.2;
-
+        // draw iris (white part)
         ctx.beginPath();
-        ctx.arc(iris_x, iris_y, irisRadius, 0, Math.PI * 2, true);
-        ctx.fillStyle = "white";
+        ctx.ellipse(this.x, this.y, this.irisWidth, this.irisHeight, 0, 0, Math.PI * 2, true);
+        ctx.fillStyle = "#FFFFFF"; // White color for the iris
         ctx.fill();
         ctx.closePath();
 
-        // pupil
+        // draw pupil
         let pupil_dx = mouse.x - this.x;
         let pupil_dy = mouse.y - this.y;
         theta = Math.atan2(pupil_dy, pupil_dx)
 
-        let pupilRadius = this.radius / 2.5;
-        let pupil_x = this.x + Math.cos(theta) * this.radius/1.9;
-        let pupil_y = this.y + Math.sin(theta) * this.radius/1.9;
+        let pupilRadius = Math.min(this.width, this.height) / 4;
+        let pupil_x = this.x + Math.cos(theta) * this.width/2.5;
+        let pupil_y = this.y + Math.sin(theta) * this.height/2.5;
 
         ctx.beginPath();
         ctx.arc(pupil_x, pupil_y, pupilRadius, 0, Math.PI * 2, true)
-        ctx.fillStyle = "black";
+        ctx.fillStyle = "#87CEEB"; // Sky blue color for the pupil
+        ctx.fill();
+        ctx.closePath();
+
+        // draw pupil dot
+        ctx.beginPath();
+        ctx.arc(pupil_x, pupil_y, pupilRadius / 2, 0, Math.PI * 2, true)
+        ctx.fillStyle = "#000000"; // Black color for the pupil dot
         ctx.fill();
         ctx.closePath();
     }
@@ -77,7 +81,8 @@ function init(){
         let eye = {
             x: Math.random() * canvas.width,
             y: Math.random() * canvas.height,
-            radius: Math.floor(Math.random() * 100) + 10
+            width: Math.floor(Math.random() * 100) + 10,
+            height: Math.floor(Math.random() * 100) + 10
         };
     
         overlapping = false; 
@@ -86,14 +91,15 @@ function init(){
             let dx = eye.x - previousEye.x;
             let dy = eye.y - previousEye.y;
             let distance = Math.sqrt(dx*dx + dy*dy)
-            if (distance < (eye.radius + previousEye.radius)){
+            if (distance < (Math.max(eye.width, eye.height) + Math.max(previousEye.width, previousEye.height))){
                 overlapping = true;
                 break;
             }
         }
         if (!overlapping){
-            eyes.push(new Eye(eye.x, eye.y, eye.radius))
+            eyes.push(new Eye(eye.x, eye.y, eye.width, eye.height))
         }
+        counter++;
     }
 }
 
