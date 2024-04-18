@@ -1,12 +1,12 @@
 const canvas = document.createElement("canvas");
-document.body.insertBefore(canvas, document.body.firstChild); // Insert canvas as the first child of <body>
+document.body.insertBefore(canvas, document.body.firstChild); 
 const ctx = canvas.getContext("2d");
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
-canvas.style.position = "fixed"; // Position the canvas fixed so it remains in the background
+canvas.style.position = "fixed"; 
 canvas.style.top = "0";
 canvas.style.left = "0";
-canvas.style.zIndex = "-1"; // Set a negative z-index to keep it behind other content
+canvas.style.zIndex = "-1"; 
 
 let eyes = [];
 let theta;
@@ -17,7 +17,7 @@ const mouse = {
 };
 
 window.addEventListener("mousemove", function(e){
-    mouse.x = e.clientX; // Use clientX and clientY for mouse coordinates
+    mouse.x = e.clientX; 
     mouse.y = e.clientY;
 });
 
@@ -27,22 +27,22 @@ class Eye {
         this.y = y;
         this.width = width;
         this.height = height;
-        this.irisRadius = Math.min(width, height) / 3; // Set iris radius to 1/3 of eye size
-        this.irisWidth = this.width * 0.8; // Set iris width to be 80% of eye width
-        this.irisHeight = this.height * 0.8; // Set iris height to be 80% of eye height
+        this.irisRadius = Math.min(width, height) / 3;
+        this.irisWidth = this.width * 0.8;
+        this.irisHeight = this.height * 0.8; 
     }
     draw(){
         // draw eye (red part)
         ctx.beginPath();
         ctx.ellipse(this.x, this.y, this.width, this.height, 0, 0, Math.PI * 2, true);
-        ctx.fillStyle = "#950019"; // Red color for the eye
+        ctx.fillStyle = "#950019"; 
         ctx.fill();
         ctx.closePath();
 
         // draw iris (white part)
         ctx.beginPath();
         ctx.ellipse(this.x, this.y, this.irisWidth, this.irisHeight, 0, 0, Math.PI * 2, true);
-        ctx.fillStyle = "#FFFFFF"; // White color for the iris
+        ctx.fillStyle = "#FFFFFF"; 
         ctx.fill();
         ctx.closePath();
 
@@ -57,14 +57,14 @@ class Eye {
 
         ctx.beginPath();
         ctx.arc(pupil_x, pupil_y, pupilRadius, 0, Math.PI * 2, true)
-        ctx.fillStyle = "#87CEEB"; // Sky blue color for the pupil
+        ctx.fillStyle = "#87CEEB"; 
         ctx.fill();
         ctx.closePath();
 
         // draw pupil dot
         ctx.beginPath();
         ctx.arc(pupil_x, pupil_y, pupilRadius / 2, 0, Math.PI * 2, true)
-        ctx.fillStyle = "#000000"; // Black color for the pupil dot
+        ctx.fillStyle = "#000000";
         ctx.fill();
         ctx.closePath();
     }
@@ -73,7 +73,7 @@ class Eye {
 function init(){
     eyes = [];
     let overlapping = false;
-    let numberOfEyes = 100;
+    let numberOfEyes = 1000;
     let protection = 10000;
     let counter = 0;
 

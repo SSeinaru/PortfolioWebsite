@@ -1,18 +1,21 @@
 @font-face {
-    font-family: 'CustomFont';
-    src: url('font/VCR_OSD_MONO_1.001.woff2') format('woff2'), /* Modern Browsers */
-         url('font/VCR_OSD_MONO_1.001.woff') format('woff'); /* Older Browsers */
+    font-family: 'vcr_osd_mono';
+    src: url('font/vcr_osd_mono_1.001-webfont.woff2') format('woff2'),
+         url('font/vcr_osd_mono_1.001-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
+
 }
 
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-}df
+    color: #FFCBDC
+}
 
 title {
+    font-family: "vcr_osd_mono";
     flex-basis: calc(100% - 20px);
     color: #D5B1BD;
     margin: 10px;
@@ -24,6 +27,7 @@ title {
 }
 
 .container {
+    font-family: "vcr_osd_mono";
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
@@ -57,6 +61,7 @@ title {
 }
 
 header {
+    font-family: "vcr_osd_mono";
     background-color: #330917;
     color: #FFCBDC;
     padding: 10px 10px;
@@ -100,6 +105,7 @@ nav ul li:first-child {
 }
 
 nav ul li a {
+    font-family: "vcr_osd_mono";
     color: #D5B1BD;
     text-decoration: none;
 }
@@ -159,6 +165,7 @@ main {
 }
 
 .text-box {
+    font-family: "vcr_osd_mono";
     flex-basis: calc(100% - 20px);
     color: #D5B1BD;
     margin: 10px;
@@ -196,6 +203,7 @@ main {
 }
 
 .contact-info .text-box {
+    font-family: "vcr_osd_mono";
     background-color: #f0f0f0;
     padding: 20px;
     border-radius: 5px;
@@ -211,6 +219,7 @@ main {
 }
 
 .project-box {
+    font-family: "vcr_osd_mono";
     border: 1px solid #551C2F;
     background-color: #330917;
     color: #FFCBDC;
