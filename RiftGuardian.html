@@ -7,17 +7,23 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
 
+    <header>
         <div class="container">
-        <div class="logo">
-    
-        <img src="Images/Logo.png" alt="Logo">
-        <span>Jasper's Portfolio</span>
+            <div class="logo">
+                <img src="images/Logo.png" alt="Logo">
+                <span>Jasper's Portfolio</span>
             </div>
             <nav>
                 <ul>
-                    <li><a href="Index.html">Projects</a></li>
+                    <li>
+                        <a href="Index.html">Projects</a>
+                        <div class="dropdown">
+                            <a href="RiftGuardian.html">Rift Guardian</a>
+                            <a href="Ultrakill.html">UltraKill</a>
+                            <a href="CelestialTerror.html">Celestial Terror</a>
+                        </div>
+                    </li>
                     <li><a href="AboutMe.html">About</a></li>
                     <li><a href="ContactInfo.html">Contact</a></li>
                 </ul>
@@ -29,14 +35,98 @@
         <section class="project-details">
             <div class="project-box">
                 <div class="project-content">
-                    <div class="project-image">
-                        <img src="Images/RiftGuardian.png" alt="Our Start Screen for the game">
-                    </div>
                     <div class="project-info">
-                        <h2>Description</h2>
-                        <p></p>
+                        <h3>What the Project was about</h3>
+                        <div class="project-image">
+                            <img src="images/Poster_The-Rift-Guardian.png" alt="">
+                        </div>
+                        <p>A VR wave shooter made in Unreal Engine. It was a fun project to work on. 
+                            Most fun part of this is how big the group was. It consisted of 22 People
+                            18 developers and 4 artists. This project lasted for about 2 periods so 6 months
+                            With me being elected as one of the lead developers again. 
+                        </p>
+                        <br>
 
-                        <a href="" class="btn">Under construction</a>
+                        <h3>What I did in the project</h3>
+                        <p>
+                            I began by making the first edition of the shop that was later remade by someone else. 
+                            At a mid point in the project we realised it was too bland and too straight forward. 
+                            So we decided to broaden our experience and decided to work on something else. 
+                            I was part of the team that was reliable to make the 'World' arrow. 
+                            It was really fun to work on with how many things I was able to work with timelines, materials, scalars, etc. 
+                            It was also a great learning experience.
+                        </p> 
+
+                        <img src="images/RiftGuardian/arrow.gif" alt="">
+
+                        <br>
+                        <h3>The Coding/Blueprint</h3>
+                        <p>
+                            Well let's begin at the first part, Mapping Context
+                        </p>
+                        <img src="images/RiftGuardian/EnableInput.png" alt="">
+                        <p>simply put what this does is allowing input actions when it's being held
+                            And what you do for this mapping context is the ability to break it.
+                        </p>
+                        <br>
+                        <p>
+                            When you hold the arrow in 2 hands with the 2 handed script used and made in many other contexts and 
+                            press Y on the oculus controller it will activate the input action.
+                            which is this.
+                        </p>
+                        <img src="images/RiftGuardian/ArrowBreak.png" alt="">
+                        <p>
+                            While this image is not the highest quality due to sizing I can explain what it does.
+                            When you break the arrow it will check if you're holding it with 2 hands
+                            and if that's true it will play a sound and place 2 halves in your hands
+                        </p>
+                        <br>
+                        <p>
+                            After it's broken you have the ability to stab yourself.
+                            That activates this Blueprint
+                        </p>
+                        <img src="images/RiftGuardian/OnBeginComponent.png" alt="">
+                        <p>
+                            Well starting off once you have stabbed yourself the arrow will check if you are now the parent object and it's being held by the place object.
+                            And if that all succeeds you are forced to let go and it will destroy the grabComponent 
+                            and Collider so you can't spam the effect and can't use the arrow again and it gets forced onto your chest
+                        </p>
+
+                        <br>
+                        <p>
+                            And after all that the arrow finally does its thing
+                        </p>
+                        <img src="images/RiftGuardian/ArrowOpeningEffect.png" alt="">
+                        <p>
+                            This hell of a blueprint is the effect of the arrow itself.
+                            So let's begin at the beginning. Its a then loop until the timelines are fully finished. 
+                            Every so many ticks it works through the line 'then 0 then 1 then 0 then 1, etc'.
+                            Which basically makes the effect startup and after the timeline is over 1.6 it makes the scalar1 reverse which reverts the colour
+                            While all of that happens time starts to slow down and stop at 
+                            After finishing the top timeline it moves down
+                        </p>
+
+                        <br>
+
+                        <p>
+                            That looks like this
+                        </p>
+                        <img src="images/RiftGuardian/ArrowClosingEffect.png" alt="">
+                        <p>
+                            Which doesn't change a lot from the opening except that it begins with a 10 second 
+                            timeline because the timestop effect lasts for 10 seconds.           
+                            While also starting the soundeffect for the ticktock to symbolise time.
+                            After the 10 seconds is up a new sfx starts of a bell meaning time will continue and the effect earlier plays again but instead making time move.
+                            Instead of it stopping, with it also making the colors back to what they were
+                        </p>
+                        
+                        <h2>Our trailer for the game</h2>
+                        <iframe width="853" height="480" src="https://www.youtube.com/watch?v=JawSwseYzAM" 
+                        title="CELESTIAL TERROR TRAILER" frameborder="0" allow="accelerometer; autoplay; 
+                        clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+ 
+                        <a href="https://github.com/SSeinaru/TheRiftGuardian" class="btn">The Github</a>
                     </div>
                 </div>
             </div>

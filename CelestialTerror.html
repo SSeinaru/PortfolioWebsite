@@ -7,17 +7,23 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
 
+    <header>
         <div class="container">
-        <div class="logo">
-    
-        <img src="Images/Logo.png" alt="Logo">
-        <span>Jasper's Portfolio</span>
+            <div class="logo">
+                <img src="images/Logo.png" alt="Logo">
+                <span>Jasper's Portfolio</span>
             </div>
             <nav>
                 <ul>
-                    <li><a href="Index.html">Projects</a></li>
+                    <li>
+                        <a href="Index.html">Projects</a>
+                        <div class="dropdown">
+                            <a href="RiftGuardian.html">Rift Guardian</a>
+                            <a href="Ultrakill.html">UltraKill</a>
+                            <a href="CelestialTerror.html">Celestial Terror</a>
+                        </div>
+                    </li>
                     <li><a href="AboutMe.html">About</a></li>
                     <li><a href="ContactInfo.html">Contact</a></li>
                 </ul>
@@ -29,15 +35,102 @@
         <section class="project-details">
             <div class="project-box">
                 <div class="project-content">
-                    <div class="project-image">
-                        <img src="Images/CelestialTerror.png" alt="Our Start Screen for the game">
                     </div>
                     <div class="project-info">
-                        <h2>Description</h2>
-                        <p></p>
+                        <h2>What the Project was about</h2>
+                        <div class="project-image">
+                            <img src="images/Celestial_Terror_Poster.png" alt="">
+                        </div>
+                        <p>Well This was the first group assignment we received out of school. 
+                            We decided as a group to make a first person point and click adventure that took place in space on the old soviet spacestation
+                            We had 2 developers and 4 Artists available to us on which I again was elected the Lead Developer.      
+                        </p>
+                        <br>
+
+                        <h3>What I did in the project</h3>
+                        <p>
+                            Well i made the ability to feel like you are walking around.
+                            Placing the soundeffects in the game made by one of the artists. 
+                            While also making the interactions with the things around the rooms and 'map'. 
+                            With the interactables the text box that pops up when you do.
+                        </p>
+                        <br>
+                        <h2>The Dialogue bar</h2>
+                        <br>
+                        <img src="images/TerrorInteract.gif">
+                        
+                        <img src="images/Yuh/DialogueBar.png">
+
+                        <p> If you wish to see the code in full detail please go </p> <a href="https://github.com/SSeinaru/M4-BO-Celestial-Terror/tree/main/Assets/Scripts/Dialog">Here</a>
+
+
+                        <h2>The Room Changing</h2>
+                        <img src="images/Moving.gif">
+                        <br>
+                        <br>
+                        <h2>The code of The room change</h2>
+
+                        <img src="images/CelestialMove/RoomLogic.png">
+                        <p>
+                            As a simple explination this is the main function of the entire 3 scripts I have to make this functional.
+                            What its about it calls the GameObject known as SceneChange and then selects the 'Rooms' from an eNUM i have.
+                            Specifically this one
+                        </p>
+                        <img src="images/CelestialMove/RoomManager1.png">
+                        <p>
+                            And afterwards calls to the SceneChangeManager to make it go smoothly and work all of what it needs to do.
+                        </p>
+
+                        <h2>The SceneChangeManager</h2>
+
+                        <img src="images/CelestialMove/RoomManager2.png">
+                        <p>
+                            This is pretty self explinatory. These are all the variables the script needs to function properly
+                        </p>
+                        <br>
+                        <p>
+                            And then comes the actual brains of this entire script
+                        </p>
+                        <img src="images/CelestialMove/RoomManager3.png">
+                        <p>
+                            What this does is basically change the rooms in the background making it look more smooth from the player perspective.
+                            First it checks if the ChangeState is not 'END'. and if it isn't it checks if the timer isn't smaller than 0 and the change state is stil not 'END'.
+                            and if then everything checks out to be fine. It sets the timer back to 0. It turns off the SceneChange GameObject. 
+                            And at the end puts the ChangeState to 'END'.
+                        </p>
+
+                        <br>
+                        <p>
+                            Then in the same script the second part if the timer is bigger than 0 but still smaller than 1 AND the ChangeState is not 'MIDDLE'.
+                            It searched for the ROoms GameObject and makes a local variable named 'all'. 
+                            After that it sets 2 more local variables named FromRoomL and targetRoom and sets them to fromRoom and toRoom.
+                            After finding the targetRoom it sets it active and turns the FromRoomL off. and after that it sets the ChangeState to 'MIDDLE'.
+                        </p>
+
+                        <br> 
+                        <p>And then after all that the code on the rooms themselves for example this one is for 'Hydroponics</p>
+                        <img src="images/CelestialMove/CodeOfRooms.png">
+                        <p>
+                            What this does is pretty self explanitory after all of what i explained.
+                            It has a variable for the SceneChange Gameobject and roomLogic
+                            Then in the start() it searches for the ROoms GameObject and grabs the RoomLogic Component on it
+                            And after that it makes functions with the roomLogic to use in buttons for the point and click part of the game.
+                        </p>
+
+
+
+                        
+                        <h2>Our trailer for the game</h2>
+                        <iframe width="853" height="480" src="https://www.youtube.com/watch?v=ezwyOErO1ZA" 
+                        title="CELESTIAL TERROR TRAILER" frameborder="0" allow="accelerometer; autoplay; 
+                        clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
                         <a href="https://github.com/SSeinaru/M4-BO-Celestial-Terror" class="btn">The GitHub Page</a>
                     </div>
+                    
+
+
                 </div>
             </div>
         </section>

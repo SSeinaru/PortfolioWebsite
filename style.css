@@ -4,14 +4,14 @@
          url('font/vcr_osd_mono_1.001-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
-
 }
 
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    color: #FFCBDC
+    color: #FFCBDC;
+    line-height: 1.6; /* Adjust line height for better readability */
 }
 
 title {
@@ -20,10 +20,13 @@ title {
     color: #D5B1BD;
     margin: 10px;
     padding: 20px;
-    border: 1px solid #551C2F;
+    border: 1px solid #A70010;
     border-radius: 5px;
-    background-color: #AA7184;
+    background-color: #4C0007;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-size: 24px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .container {
@@ -31,12 +34,18 @@ title {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+    font-size: 16px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .intro {
-    background-color: #551C2F;
+    background-color: #490006;
     padding: 50px 0;
     text-align: center;
+    font-size: 18px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .intro form {
@@ -46,6 +55,9 @@ title {
 .intro input[type="text"] {
     padding: 10px;
     width: 200px;
+    font-size: 14px;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 .intro button {
@@ -54,6 +66,9 @@ title {
     color: #fff;
     border: none;
     cursor: pointer;
+    font-size: 14px;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 .intro button:hover {
@@ -61,10 +76,83 @@ title {
 }
 
 header {
-    font-family: "vcr_osd_mono";
-    background-color: #330917;
-    color: #FFCBDC;
-    padding: 10px 10px;
+    background-color: #260003;
+    padding: 10px 0;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+}
+
+header .logo img {
+    max-height: 50px;
+    margin-right: 10px;
+}
+
+header .logo span {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+header nav ul li {
+    margin-left: 20px;
+    position: relative;
+}
+
+header nav ul li a {
+    text-decoration: none;
+    color: #D5B1BD;
+    font-size: 18px;
+    transition: color 0.3s;
+}
+
+header nav ul li a:hover {
+    color: #007bff;
+}
+
+/* Dropdown Menu */
+header nav ul li:hover .dropdown {
+    display: block;
+}
+
+.dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #260003;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 5px;
+}
+
+.dropdown a {
+    display: block;
+    color: #D5B1BD;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.dropdown a:hover {
+    background-color: #490006;
 }
 
 .container {
@@ -80,7 +168,7 @@ header {
 }
 
 .logo img {
-    height: 70px; /* Increase the height of the logo */
+    height: 70px;
     width: auto;
     margin-right: 10px;
 }
@@ -108,10 +196,16 @@ nav ul li a {
     font-family: "vcr_osd_mono";
     color: #D5B1BD;
     text-decoration: none;
+    font-size: 16px;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 main {
     padding: 50px 0;
+    font-size: 18px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .projects {
@@ -120,41 +214,62 @@ main {
 
 .project-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); /* Set the grid to auto-fill columns */
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     grid-gap: 20px;
+    list-style-type: none;
 }
 
 .project {
-    border: 1px solid #551C2F;
+    border: 4px solid #A70010;
     padding: 20px;
-    background-color: #AA7184; /* Set background color for projects */
+    background-color: #000;
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* Align content vertically */
+    justify-content: space-between;
     align-items: center;
     text-align: center;
-    position: relative; /* Ensure proper positioning of image container */
-    overflow: hidden; /* Hide overflow to maintain square shape */
-    margin-bottom: 20px; /* Add margin to create space between projects */
-    transition: transform 0.3s ease-in-out; /* Add smooth transition effect */
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease-in-out;
+    font-size: 16px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .project:hover {
-    transform: scale(1.1); /* Enlarge by 10% on hover */
+    transform: scale(1.1);
 }
 
 .project img {
-    max-width: 100%; /* Ensure image fits within container */
-    max-height: 100%; /* Ensure image fits within container */
-    object-fit: contain; /* Maintain aspect ratio and fit within container */
-    margin-bottom: 10px; /* Add space between image and text */
+    max-width: 70%;
+    max-height: 70%;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+.project-image {
+    flex: 1;
+    float: left;
+    margin-right: 20px;
+    width: 40%;
+}
+
+.project-image img {
+    width: 100%;
+    height: auto;
+    display: block;
 }
 
 .project-text {
-    width: 100%; /* Ensure text spans the full width */
-    overflow: hidden; /* Hide overflow */
-    text-overflow: ellipsis; /* Add ellipsis for text overflow */
-    white-space: nowrap; /* Prevent text from wrapping */
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 14px;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 .about-content {
@@ -162,18 +277,9 @@ main {
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: flex-start;
-}
-
-.text-box {
-    font-family: "vcr_osd_mono";
-    flex-basis: calc(100% - 20px);
-    color: #D5B1BD;
-    margin: 10px;
-    padding: 20px;
-    border: 1px solid #551C2F;
-    border-radius: 5px;
-    background-color: #AA7184;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .profile-picture {
@@ -182,24 +288,16 @@ main {
 }
 
 .profile-picture img {
-    max-width: 100%;
+    max-width: 40%;
     border-radius: 5px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-@media screen and (max-width: 768px) {
-    .about-content {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .profile-picture, .text-box {
-        flex-basis: 100%;
-    }
-}
-
 .container h2 {
     margin-bottom: 20px;
+    font-size: 24px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .contact-info .text-box {
@@ -208,32 +306,48 @@ main {
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .contact-info p {
     margin-bottom: 10px;
+    font-size: 16px;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 .project-details {
     display: flex;
+    justify-content: center;
+    font-size: 16px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .project-box {
     font-family: "vcr_osd_mono";
-    border: 1px solid #551C2F;
-    background-color: #330917;
-    color: #FFCBDC;
     border-radius: 5px;
     overflow: hidden;
-    width: 100%;
+    width: 40%;
+    margin: auto;
+    font-size: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .project-content {
     display: flex;
+    font-size: 16px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .project-image {
     flex: 1;
+    float: left;
+    margin-right: 20px;
 }
 
 .project-image img {
@@ -248,15 +362,24 @@ main {
 
 .project-info h2 {
     margin-top: 0;
+    font-size: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .project-info ul {
     list-style-type: none;
     padding: 0;
+    font-size: 16px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .project-info ul li {
     margin-bottom: 10px;
+    font-size: 16px;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 .btn {
@@ -267,8 +390,17 @@ main {
     padding: 10px 20px;
     border-radius: 5px;
     transition: background-color 0.3s ease;
+    font-size: 16px;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 
 .btn:hover {
     background-color: #555;
+}
+
+img {
+    width: 100%;
+    height: auto;
+    padding: 5px;
 }

@@ -30,43 +30,70 @@ class Eye {
         this.irisRadius = Math.min(width, height) / 3;
         this.irisWidth = this.width * 0.8;
         this.irisHeight = this.height * 0.8; 
+        this.isBlinking = false;
+        this.blinkTime = 0;
+        this.blinkDuration = 20; // Blink duration in frames (slightly slower)
+        this.pupilRadius = Math.min(this.width, this.height) / 5; // Adjusted pupil size
+        this.pupilDotRadius = this.pupilRadius / 2; // Adjusted pupil dot size
     }
+    
     draw(){
+        // Check if the eye is blinking
+        if (this.isBlinking) {
+            // Draw closed eye
+            ctx.beginPath();
+            ctx.ellipse(this.x, this.y, this.width, this.height / 5, 0, 0, Math.PI * 2, true);
+            ctx.fillStyle = "#950019"; 
+            ctx.fill();
+            ctx.closePath();
+
+            // Decrease blink time
+            this.blinkTime--;
+            if (this.blinkTime <= 0) {
+                this.isBlinking = false;
+            }
+            return;
+        }
+
         // draw eye (red part)
         ctx.beginPath();
         ctx.ellipse(this.x, this.y, this.width, this.height, 0, 0, Math.PI * 2, true);
-        ctx.fillStyle = "#950019"; 
+        ctx.fillStyle = "#A70010"; 
         ctx.fill();
         ctx.closePath();
 
         // draw iris (white part)
         ctx.beginPath();
         ctx.ellipse(this.x, this.y, this.irisWidth, this.irisHeight, 0, 0, Math.PI * 2, true);
-        ctx.fillStyle = "#FFFFFF"; 
+        ctx.fillStyle = "#000000"; 
         ctx.fill();
         ctx.closePath();
 
         // draw pupil
         let pupil_dx = mouse.x - this.x;
         let pupil_dy = mouse.y - this.y;
-        theta = Math.atan2(pupil_dy, pupil_dx)
+        theta = Math.atan2(pupil_dy, pupil_dx);
 
-        let pupilRadius = Math.min(this.width, this.height) / 4;
-        let pupil_x = this.x + Math.cos(theta) * this.width/2.5;
-        let pupil_y = this.y + Math.sin(theta) * this.height/2.5;
+        let pupil_x = this.x + Math.cos(theta) * this.width / 2.5;
+        let pupil_y = this.y + Math.sin(theta) * this.height / 2.5;
 
         ctx.beginPath();
-        ctx.arc(pupil_x, pupil_y, pupilRadius, 0, Math.PI * 2, true)
-        ctx.fillStyle = "#87CEEB"; 
+        ctx.arc(pupil_x, pupil_y, this.pupilRadius, 0, Math.PI * 2, true);
+        ctx.fillStyle = "#A70010"; 
         ctx.fill();
         ctx.closePath();
 
         // draw pupil dot
         ctx.beginPath();
-        ctx.arc(pupil_x, pupil_y, pupilRadius / 2, 0, Math.PI * 2, true)
-        ctx.fillStyle = "#000000";
+        ctx.arc(pupil_x, pupil_y, this.pupilDotRadius, 0, Math.PI * 2, true);
+        ctx.fillStyle = "#A70010";
         ctx.fill();
         ctx.closePath();
+    }
+
+    blink() {
+        this.isBlinking = true;
+        this.blinkTime = this.blinkDuration;
     }
 }
 
@@ -112,8 +139,21 @@ function animate(){
     }
 }
 
+function triggerRandomBlinks() {
+    const randomInterval = Math.random() * 2000 + 1000; // Random interval between 1 and 3 seconds
+    setTimeout(() => {
+        const numberOfBlinks = Math.floor(Math.random() * 20) + 1; // Random number of eyes to blink (between 1 and 5)
+        for (let i = 0; i < numberOfBlinks; i++) {
+            const randomEye = eyes[Math.floor(Math.random() * eyes.length)];
+            randomEye.blink();
+        }
+        triggerRandomBlinks(); // Recursively call to keep the blinks happening
+    }, randomInterval);
+}
+
 init();
 animate();
+triggerRandomBlinks();
 
 window.addEventListener("resize", function(){
     canvas.width = window.innerWidth;
