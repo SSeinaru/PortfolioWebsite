@@ -327,10 +327,11 @@ main {
 }
 
 .project-box {
+    display: flex;
     font-family: "vcr_osd_mono";
     border-radius: 5px;
     overflow: hidden;
-    width: 40%;
+    width: 60%;
     margin: auto;
     font-size: 20px;
     padding-top: 10px;
@@ -382,6 +383,20 @@ main {
     padding-bottom: 5px;
 }
 
+.info-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.info-list li {
+    margin-bottom: 10px;
+}
+
+.info-list li strong {
+    display: inline-block;
+    width: 150px;
+}
+
 .btn {
     display: inline-block;
     background-color: #333;
@@ -403,4 +418,6 @@ img {
     width: 100%;
     height: auto;
     padding: 5px;
+    object-fit: contain; 
 }
+
