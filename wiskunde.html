@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portfolio</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
     <header>
-        <div class="container">
+        <div class="headerContainer">
             <div class="logo">
                 <img src="images/Logo.png" alt="Logo">
                 <span>Jasper, Game Mechanic Developer</span>
@@ -33,33 +35,55 @@
             </nav>
         </div>
     </header>
-    
 
-<div class="intro">
-    <div class="container">
-        <p>These are Math Projects I made</p>
-    </div>
-</div>
+    <main>
+        <!-- Prob needs another format but I'll keep it for now -->
+        <div class="project-content">
+            <div class="project-info">
+                <!-- Template for introduction-->
+                <div class="project-info-intro">
+                    <div class="project-info-intro-image">
+                        <img src="images/ukposter.png" alt="">
+                    </div>
+                    <div class="project-info-intro-text">
+                        <h2>What the Project was about</h2>
+                        <p>
+                            [INSERT TEXT]
+                        </p>
 
-<main>
-    <section id="projects">
-        <div class="container">
-            <h2>Projects</h2>
-            <div class="project-grid">
-                <div class="project">
-                    <li><a href="">
-                        <img src="" alt="Project 3">
-                        <h3></h3>
-                        <p></p>
-                    </a></li>
+                        <h3>What I did in the project</h3>
+                        <p>
+                            [INSERT TEXT]
+                        </p>
+                    </div>
                 </div>
-                <!-- Add more projects as needed -->
+
+                <!-- Template for part -->
+                <div class="featureExplenationPart">
+                    <h3>[TITLE, NAME, ETC]</h3>
+                    <div class="projectFeatureImageContainer">
+                        <!-- NUDES -->
+                    </div>
+                    <p>
+                        [YAPPING]
+                    </p>
+                </div>
+                <!-- I don't embed youtube videos, but just put this shit in the div and you'll be fine -->
+                <div class="projectVideoContainer">
+                    <h2>Gameplay video</h2>
+                    <iframe width="870" height="480" src="https://www.youtube.com/embed/JCzrlGosVN4"
+                        title="Ultrakill raw gameplay" frameborder="0" allow="accelerometer; autoplay; 
+                        clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <!-- Link to github-->
+                <a href="" class="btn">The GitHub Page</a>
             </div>
         </div>
-    </section>
-</main>
+    </main>
 
 
-<script src="app.js"></script>
+    <script defer src="app.js"></script>
 </body>
+
 </html>

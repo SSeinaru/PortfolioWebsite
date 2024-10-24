@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portfolio</title>
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
     <header>
-        <div class="container">
+        <div class="headerContainer">
             <div class="logo">
                 <img src="images/Logo.png" alt="Logo">
                 <span>Jasper, Game Mechanic Developer</span>
@@ -33,82 +34,81 @@
             </nav>
         </div>
     </header>
-    
 
-<div class="intro">
-    <div class="container">
-        <h2>Sup welcome</h2>
-        <p>These are my main projects i worked on</p>
-    </div>
-</div>
-
-<main>
-    <section id="projects">
-        <div class="container">
-            <h2>Projects</h2>
-            <div class="project-grid">
-                <div class="project">
-                    <li>
-                        <a href="RiftGuardian.html">
-                            <img src="images/Poster_The-Rift-Guardian.png" alt="Project 3">
-                            <h3>The RIFT Guardian</h3>
-                            <p>A VR wave shooter made in unreal engine</p>
-                        </a>
-                    </li>
-                </div>
-                <div class="project">
-                    <li>
-                        <a href="Ultrakill.html">
-                            <img src="images/ukposter.png" alt="Project 1">
-                            <h3>Project ULTRAKILL</h3>
-                            <p>A vertical slice of the First level in ULTRAKILL</p>
-                        </a>
-                    </li>
-                </div>
-                <div class="project">
-                    <li>
-                        <a href="CelestialTerror.html">
-                            <img src="images/Celestial_Terror_Poster.png" alt="Project 2">
-                            <h3>Celestial Terror</h3>
-                            <p>A very unfinished point and click horror story</p>
-                        </a>
-                    </li>
-                </div>
-                <div class="project">
-                    <li>
-                        <a href="MovementShenangins.html">
-                            <img src="" alt="Project 4">
-                            <h3>Movement Shenangins</h3>
-                            <p>A movement base I made in my free time</p>
-                        </a>
-                    </li>
-                </div>
-                <div class="project">
-                    <li>
-                        <a href="Fnaf3_Arduino.html">
-                            <img src="" alt="Project 5">
-                            <h3>Fnaf 3 Arduino</h3>
-                            <p>A arduino project to connect with unity</p>
-                        </a>
-                    </li>
-                </div>
-                <div class="project">
-                    <li>
-                        <a href="wiskunde.html">
-                            <img src="" alt="Project 6">
-                            <h3>Math :D</h3>
-                            <p>All math projects I did</p>
-                        </a>
-                    </li>
-                </div>
-                
-                <!-- Add more projects as needed -->
+    <main>
+        <div class="intro">
+            <div class="introContainer">
+                <h2>Sup welcome</h2>
+                <p>These are my main projects I worked on</p>
             </div>
         </div>
-    </section>
-</main>
+        <section class="projects">
+            <div class="projectsContainer">
+                <h2>Projects</h2>
+                <div class="project-grid">
+                    <div class="project" onclick="app.RedirectTo('RiftGuardian.html')">
+                        <img src="images/Poster_The-Rift-Guardian.png" alt="Project 3">
+                        <p class="projectGridTitle">
+                            The RIFT Guardian
+                        </p>
+                        <p class="projectGridDescription">
+                            A VR wave shooter made in unreal engine
+                        </p>
+                    </div>
+                    <div class="project" onclick="app.RedirectTo('Ultrakill.html')">
+                        <img src="images/ukposter.png" alt="Project 1">
+                        <p class="projectGridTitle">
+                            Project ULTRAKILL
+                        </p>
+                        <p class="projectGridDescription">
+                            A vertical slice of the First level in ULTRAKILL
+                        </p>
+                    </div>
+                    <div class="project" onclick="app.RedirectTo('CelestialTerror.html')">
+                        <img src="images/Celestial_Terror_Poster.png" alt="Project 2">
+                        <p class="projectGridTitle">
+                            Celestial Terror
+                        </p>
+                        <p class="projectGridDescription">
+                            A very unfinished point and click horror story
+                        </p>
+                    </div>
+                    <div class="project" onclick="app.RedirectTo('MovementShenangins.html')">
+                        <img src="" alt="Project 4">
+                        <p class="projectGridTitle">
+                            Movement Shenangins
+                        </p>
+                        <p class="projectGridDescription">
+                            A movement base I made in my free time
+                        </p>
+                    </div>
+                    <div class="project" onclick="app.RedirectTo('Fnaf3_Arduino.html')">
+                        <img src="" alt="Project 5">
+                        <p class="projectGridTitle">
+                            Fnaf 3 Arduino
+                        </p>
+                        <p class="projectGridDescription">
+                            A arduino project to connect with unity
+                        </p>
+                    </div>
+                    <div class="project" onclick="app.RedirectTo('wiskunde.html')">
+                        <img src="" alt="Project 6">
+                        <p class="projectGridTitle">
+                            Math :D
+                        </p>
+                        <p class="projectGridDescription">
+                            All math projects I did
+                        </p>
+                    </div>
+
+                    <!-- Add more projects as needed -->
+                </div>
+            </div>
+        </section>
+    </main>
 
 
-<script src="app.js"></script>
+    <script src="app.js"></script>
 </body>
+
 </html>

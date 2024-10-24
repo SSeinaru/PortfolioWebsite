@@ -1,26 +1,27 @@
 @font-face {
     font-family: 'vcr_osd_mono';
     src: url('font/vcr_osd_mono_1.001-webfont.woff2') format('woff2'),
-         url('font/vcr_osd_mono_1.001-webfont.woff') format('woff');
+        url('font/vcr_osd_mono_1.001-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
 
 * {
+    font-family: "vcr_osd_mono";
     box-sizing: border-box;
     margin: 0;
     padding: 0;
     color: #FFCBDC;
-    line-height: 1.6; /* Adjust line height for better readability */
+    line-height: 1.6;
+    /* Adjust line height for better readability */
 }
 
 title {
-    font-family: "vcr_osd_mono";
     flex-basis: calc(100% - 20px);
     color: #D5B1BD;
     margin: 10px;
     padding: 20px;
-    border: 1px solid #A70010;
+    border: 1px solid rgb(167, 0, 16);
     border-radius: 5px;
     background-color: #4C0007;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -29,107 +30,87 @@ title {
     padding-bottom: 10px;
 }
 
-.container {
-    font-family: "vcr_osd_mono";
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-    font-size: 16px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-}
-
-.intro {
-    background-color: #490006;
-    padding: 50px 0;
-    text-align: center;
-    font-size: 18px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-}
-
-.intro form {
-    margin-top: 20px;
-}
-
-.intro input[type="text"] {
-    padding: 10px;
-    width: 200px;
-    font-size: 14px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-}
-
-.intro button {
-    padding: 10px 20px;
-    background-color: #333;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    font-size: 14px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-}
-
-.intro button:hover {
-    background-color: #555;
+body {
+    margin: 0;
+    width: 100vw;
+    overflow-x: hidden;
+    background-color: black;
 }
 
 header {
     background-color: #260003;
-    padding: 10px 0;
+    height: 6vh;
 }
 
-header .container {
+header>.headerContainer {
     display: flex;
-    justify-content: space-between;
+    height: 100%;
+    padding: 0 10vw 0 10vw;
+    justify-content: center;
     align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+    gap: 20%;
+    align-items: center;
+    width: 100%;
+    font-size: 18pt;
 }
 
-header .logo {
+header>.headerContainer>.logo {
     display: flex;
     align-items: center;
 }
 
-header .logo img {
-    max-height: 50px;
+header>.headerContainer>.logo>img {
+    max-height: 5.5vh;
     margin-right: 10px;
 }
 
-header .logo span {
-    font-size: 24px;
+header>.headerContainer>.logo>span {
+    font-size: 100%;
     font-weight: bold;
 }
 
-header nav ul {
+header>.headerContainer>nav {
+    width: 30%;
+    padding-left: 7%;
+}
+
+header>.headerContainer>nav>ul {
+    width: 100%;
     list-style: none;
     display: flex;
+    justify-content: center;
+    gap: 6%;
     margin: 0;
     padding: 0;
 }
 
-header nav ul li {
-    margin-left: 20px;
+header>.headerContainer>nav>ul>li:first-child {
+    width: fit-content;
+}
+
+header>.headerContainer>nav>ul>li {
     position: relative;
 }
 
-header nav ul li a {
+header>.headerContainer>nav>ul>li>a {
     text-decoration: none;
     color: #D5B1BD;
-    font-size: 18px;
-    transition: color 0.3s;
+    font-size: 80%;
+    transition: all 0.3s;
 }
 
-header nav ul li a:hover {
+header>.headerContainer>nav>ul>li>a:hover {
     color: #007bff;
 }
 
 /* Dropdown Menu */
-header nav ul li:hover .dropdown {
+header>.headerContainer>nav>ul>li:hover>.dropdown {
     display: block;
+    width: fit-content;
+}
+
+header>.headerContainer>nav>ul>li:hover>.dropdown>a {
+    white-space: nowrap;
 }
 
 .dropdown {
@@ -143,7 +124,7 @@ header nav ul li:hover .dropdown {
     border-radius: 5px;
 }
 
-.dropdown a {
+.dropdown>a {
     display: block;
     color: #D5B1BD;
     padding: 10px 20px;
@@ -151,14 +132,8 @@ header nav ul li:hover .dropdown {
     font-size: 16px;
 }
 
-.dropdown a:hover {
+.dropdown>a:hover {
     background-color: #490006;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
 }
 
 .header-content {
@@ -167,234 +142,242 @@ header nav ul li:hover .dropdown {
     align-items: center;
 }
 
-.logo img {
-    height: 70px;
-    width: auto;
-    margin-right: 10px;
-}
-
-.logo span {
-    font-size: 24px;
-    font-weight: bold;
-}
-
-nav ul {
-    list-style-type: none;
-    display: flex;
-    justify-content: flex-end;
-}
-
-nav ul li {
-    margin-left: 20px;
-}
-
-nav ul li:first-child {
-    margin-left: 0;
-}
-
-nav ul li a {
-    font-family: "vcr_osd_mono";
-    color: #D5B1BD;
-    text-decoration: none;
-    font-size: 16px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-}
-
 main {
-    padding: 50px 0;
     font-size: 18px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+}
+
+.intro {
+    background-color: #490006;
+    padding: 1vh 0 2vh 0;
+    text-align: center;
+    font-size: 14pt;
+}
+
+.intro>.introContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
 }
 
 .projects {
     margin-bottom: 50px;
 }
 
-.project-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    grid-gap: 20px;
-    list-style-type: none;
+.projects>.projectsContainer {
+    margin: 0 auto 0 auto;
+    width: 70%;
+    padding: 1%;
+    font-size: 16pt;
 }
 
-.project {
-    border: 4px solid #A70010;
-    padding: 20px;
+.projects>.projectsContainer>h2 {
+    font-size: 150%;
+    margin-left: 3%;
+}
+
+.project-grid {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 2% 0 2% 0;
+    gap: 1% 2%;
+}
+
+.project-grid>.project {
+    width: 30%;
+    max-height: 50vh;
+    border: 6px solid #A70010;
+    padding: 1vw;
     background-color: #000;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     align-items: center;
     text-align: center;
     position: relative;
     overflow: hidden;
     margin-bottom: 20px;
-    transition: transform 0.3s ease-in-out;
-    font-size: 16px;
+    transition: all 0.3s ease-in-out;
+    text-decoration: underline;
     padding-top: 10px;
     padding-bottom: 10px;
 }
 
 .project:hover {
     transform: scale(1.1);
+    cursor: pointer;
 }
 
-.project img {
-    max-width: 70%;
-    max-height: 70%;
-    object-fit: contain;
-    margin-bottom: 10px;
+
+.project>img {
+    height: 70%;
+    margin-bottom: 5%;
 }
 
-.project-image {
-    flex: 1;
-    float: left;
-    margin-right: 20px;
-    width: 40%;
+.project>.projectGridTitle {
+    font-size: 100%;
+    font-weight: 700;
 }
 
-.project-image img {
-    width: 100%;
-    height: auto;
-    display: block;
+.project>.projectGridDescription {
+    font-size: 75%;
+    margin-bottom: 3vh;
 }
 
-.project-text {
-    width: 100%;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    font-size: 14px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-}
-
-.about-content {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: flex-start;
-    font-size: 16px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-}
-
-.profile-picture {
-    flex-basis: 30%;
-    margin: 10px;
-}
-
-.profile-picture img {
-    max-width: 40%;
-    border-radius: 5px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.container h2 {
-    margin-bottom: 20px;
-    font-size: 24px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-}
-
-.contact-info .text-box {
-    font-family: "vcr_osd_mono";
-    background-color: #f0f0f0;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-    font-size: 16px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-}
-
-.contact-info p {
-    margin-bottom: 10px;
-    font-size: 16px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-}
-
-.project-details {
-    display: flex;
-    justify-content: center;
-    font-size: 16px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-}
-
-.project-box {
-    display: flex;
+.project-content {
+    font-size: 12pt;
     font-family: "vcr_osd_mono";
     border-radius: 5px;
     overflow: hidden;
     width: 60%;
     margin: auto;
-    font-size: 20px;
-    padding-top: 10px;
-    padding-bottom: 10px;
 }
 
-.project-content {
+.project-info {
+    width: 100%;
     display: flex;
-    font-size: 16px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    flex-direction: column;
+    align-items: center;
 }
 
-.project-image {
-    flex: 1;
-    float: left;
-    margin-right: 20px;
+.project-info-intro {
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: 3vh 0 3vh 0;
 }
 
-.project-image img {
+.project-info-intro-image {
+    width: 40%;
+}
+
+.project-info-intro-image>img {
     max-width: 100%;
     height: auto;
 }
 
-.project-info {
-    flex: 1;
-    padding: 20px;
+.project-info-intro-text {
+    width: 50%;
 }
 
-.project-info h2 {
-    margin-top: 0;
-    font-size: 20px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+.project-info-intro-text>div {
+    margin-bottom: 1vh;
 }
 
-.project-info ul {
-    list-style-type: none;
-    padding: 0;
-    font-size: 16px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+.project-info-intro-text>div>h3 {
+    font-size: 150%;
 }
 
-.project-info ul li {
-    margin-bottom: 10px;
-    font-size: 16px;
-    padding-top: 5px;
-    padding-bottom: 5px;
+.featureExplenationPart {
+    margin: 1.5vh 0 1.5vh 0;
+    padding: 1vh 1vw 1vh 1vw;
+    border: 2px dashed rgba(167, 0, 17, 0.13);
+    border-radius: 15px;
 }
+
+.projectFeatureImageContainer,
+.mainProjectDisplay {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1.5vh 0 1.5vh 0;
+}
+
+.mainProjectDisplay {
+    margin-bottom: 5vh;
+}
+
+.projectFeatureImageContainer>img {
+    width: 100%;
+}
+
+.mainProjectDisplay>img {
+    width: 100%;
+    border-radius: 15px;
+}
+
+.projectVideoContainer {
+    width: 100%;
+    height: fit-content;
+    padding-left: 1vw;
+    border: 2px dashed rgba(255, 255, 255, 0.13);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.projectVideoContainer>iframe {
+    width: 100%;
+    height: 100%;
+}
+
+.project-info>.btn {
+    margin-top: 2vh;
+}
+
+.aboutMeContainer {
+    width: 60%;
+    margin: 5vh auto 0 auto;
+    display: flex;
+    justify-content: center;
+    gap: 2%;
+    flex-direction: row;
+}
+
+.aboutMeProfilePicture {
+    width: 40%;
+}
+
+.aboutMeProfilePicture>img {
+    width: 100%;
+}
+
+.aboutMeTextContainer {
+    width: 60%;
+    font-size: 16pt;
+    display: flex;
+    flex-direction: column;
+    gap: 10%;
+}
+
+.aboutMeText>p {
+    margin-top: 1.5vh;
+    line-height: 20pt;
+}
+
+.aboutMeCVLink>h2 {
+    height: 50%;
+}
+
+.contactInfo {
+    width: 60%;
+    margin: 5vh auto 0 auto;
+}
+
+.contactInfo>h2 {
+    font-size: 140%;
+    margin-bottom: 1vh;
+}
+
 
 .info-list {
     list-style-type: none;
     padding: 0;
 }
 
-.info-list li {
+.info-list>li {
+    width: 100%;
     margin-bottom: 10px;
+
 }
 
-.info-list li strong {
+.info-list>li>strong {
     display: inline-block;
-    width: 150px;
+    width: 15vw;
 }
 
 .btn {
@@ -404,7 +387,7 @@ main {
     text-decoration: none;
     padding: 10px 20px;
     border-radius: 5px;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
     font-size: 16px;
     padding-top: 5px;
     padding-bottom: 5px;
@@ -414,10 +397,293 @@ main {
     background-color: #555;
 }
 
-img {
-    width: 100%;
-    height: auto;
-    padding: 5px;
-    object-fit: contain; 
+footer {
+    height: 10px;
 }
 
+.CVDump {
+    margin: 1vh 0 0 15vw;
+}
+
+.CVDump>ul {
+    margin-bottom: 1vh;
+}
+
+
+@media screen and (max-width: 1439px) {
+
+    header>.headerContainer {
+        font-size: 16pt;
+        gap: 0;
+    }
+
+    header>.headerContainer>.logo {
+        width: 50vw;
+    }
+
+    header>.headerContainer>nav {
+        padding: 0;
+    }
+
+    .projects>.projectsContainer {
+        font-size: 14pt;
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .projects>.projectsContainer {
+        font-size: 10pt;
+    }
+
+    .project-content {
+        width: 80%;
+    }
+
+    .aboutMeContainer {
+        width: 70%;
+    }
+
+    .info-list>li>strong {
+        display: inline-block;
+        width: 20vw;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    header>.headerContainer {
+        padding: 0 2vw 0 2vw;
+        font-size: 12pt;
+    }
+
+    .projects>.projectsContainer {
+        width: 90%;
+    }
+
+    .project-grid>.project {
+        padding: 1.5vh;
+        max-height: 40vh;
+    }
+
+    .project>.projectGridDescription {
+        margin-bottom: 1vh;
+    }
+
+    .project-content {
+        font-size: 10pt;
+    }
+
+    .aboutMeContainer {
+        width: 75%;
+    }
+
+    .CVDump {
+        font-size: 12pt;
+        margin-left: 5vw;
+    }
+
+    .info-list>li>strong {
+        width: 30vw;
+    }
+}
+
+/* For Tablets */
+
+@media screen and (max-width: 769px) {
+
+    .intro {
+        height: 10vh;
+        font-size: 10pt
+    }
+
+    .intro>.introContainer {
+        height: 100%;
+        gap: 1vh;
+    }
+
+    header>.headerContainer>.logo {
+        width: 70vw;
+    }
+
+    .projects>.projectsContainer {
+        font-size: 10pt;
+        width: 100%;
+    }
+
+    .project>img {
+        max-width: 80%;
+    }
+
+    .project-content {
+        width: 100%;
+    }
+
+    .project-info-intro {
+        width: 95%;
+    }
+
+    .project-info-intro-image {
+        width: 47%;
+    }
+
+    .project-info-intro-text {
+        width: 50%;
+    }
+
+    .mainProjectDisplay {
+        width: 90%;
+    }
+
+    .featureExplenationPart,
+    .projectVideoContainer {
+        width: 80%;
+    }
+
+    .aboutMeContainer {
+        width: 80%;
+    }
+
+
+}
+
+
+@media screen and (max-width: 600px) {
+
+    .project-grid>.project {
+        width: 45%;
+        max-height: 80vh;
+    }
+
+    .project-info-intro {
+        flex-wrap: wrap;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .project-info-intro-image {
+        width: 70%;
+    }
+
+    .project-info-intro-text {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 10%;
+        width: 100%;
+    }
+
+    .project-info-intro-text>div {
+        width: 100%;
+    }
+
+    .project-info-intro-text {
+        font-size: 8pt;
+    }
+
+    .aboutMeContainer {
+        margin: 2vh auto 2vh auto;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .aboutMeProfilePicture {
+        width: 50%;
+    }
+
+    .aboutMeTextContainer {
+        width: 100%;
+    }
+
+    .aboutMeCVLink>h2 {
+        margin-top: 2vh;
+    }
+
+    .CVDump {
+        font-size: 10pt;
+    }
+
+}
+
+/* Phone layout begins here */
+
+@media screen and (max-width: 500px) {
+    header {
+        height: 10vh;
+    }
+
+    header>.headerContainer {
+        height: 100%;
+        font-size: 14pt;
+        flex-direction: column;
+    }
+
+    header>.headerContainer>.logo {
+        max-height: none;
+        height: 5vh;
+        white-space: nowrap;
+        width: 100%;
+    }
+
+    header>.headerContainer>.logo>span {
+        width: 90%;
+        text-align: center;
+    }
+
+    header>.headerContainer>nav {
+        width: 100vw;
+    }
+
+    header>.headerContainer>.logo>img {
+        max-height: 4vh;
+        margin-right: 1vw;
+    }
+
+    .projects>.projectsContainer {
+        font-size: 16pt;
+    }
+
+    .projects>.projectsContainer>h2 {
+        font-size: 120%;
+    }
+
+    .project-grid>.project {
+        width: 90%;
+    }
+
+    .project>img {
+        max-width: 90%;
+        height: 100%;
+        max-height: 80%;
+    }
+
+    .project-info-intro {
+        width: 90%;
+        padding: 0 1vw 0 1vw;
+    }
+
+    .project-info-intro-text {
+        padding-top: 1vh;
+        flex-direction: column;
+        gap: 2vh;
+    }
+
+    .featureExplenationPart,
+    .projectVideoContainer {
+        width: 90%;
+    }
+
+    .CVDump {
+        font-size: 10pt;
+    }
+
+    .info-list>li>strong {
+        width: 30vw;
+    }
+
+
+}
+
+@media screen and (max-width: 375px) {
+    header>.headerContainer {
+        font-size: 10pt;
+    }
+}
